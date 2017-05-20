@@ -1,0 +1,6 @@
+/target
+/DiaspectrixWeb.iml
+/.idea
+# Created by .ignore support plugin (hsz.mobi)
+/*.sql
+/com.diaspectrix.web.iml
