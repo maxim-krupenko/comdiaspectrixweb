@@ -32,7 +32,8 @@ body, .form-control{
 }
 
 .custom-width {
-    width: 80px !important;
+    text-align: center !important;
+    width: 90px !important;
 }
 
 .parentbox {

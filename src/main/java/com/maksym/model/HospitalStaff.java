@@ -136,7 +136,7 @@ public class HospitalStaff {
         this.email = email;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "idHs")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "idHs", cascade = CascadeType.ALL)
     @JsonIgnore
     public Set<HistoryOfChanges> getHistoryofchanges() {
         return historyofchanges;
@@ -146,7 +146,7 @@ public class HospitalStaff {
         this.historyofchanges = historyofchanges;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "idHs")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "idHs", cascade = CascadeType.ALL)
     @JsonIgnore
     public Set<Journal> getJournals() {
         return journals;
@@ -156,7 +156,7 @@ public class HospitalStaff {
         this.journals = journals;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "idHs")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "idHs", cascade = CascadeType.ALL)
     @JsonIgnore
     public Set<Seans> getSeanses() {
         return seanses;
