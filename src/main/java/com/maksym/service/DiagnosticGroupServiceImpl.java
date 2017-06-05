@@ -37,8 +37,18 @@ public class DiagnosticGroupServiceImpl implements DiagnosticGroupService{
     public List<DiagnosticGroup> findAllDiagnosticGroups() {
         return diagnosticGroupRepository.findAll();
     }
+    
+
+    public List<DiagnosticGroup> findByGroupName(String name) {
+    	return diagnosticGroupRepository.findByGroupName(name);
+    }
 
     public boolean isDiagnosticGroupExist(DiagnosticGroup diagnosticGroup) {
+    	List<DiagnosticGroup> groupsWithSameName = diagnosticGroupRepository
+    			.findByGroupName(diagnosticGroup.getGroupName());
+    	if(groupsWithSameName != null && !groupsWithSameName.isEmpty()) {
+    		return true;
+    	}
         return diagnosticGroupRepository.exists(diagnosticGroup.getIdDg());
     }
 }

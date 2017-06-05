@@ -18,4 +18,6 @@ public interface DiagnosticGroupService {
     List<DiagnosticGroup> findAllDiagnosticGroups();
 
     boolean isDiagnosticGroupExist(DiagnosticGroup diagnosticGroup);
+    
+    List<DiagnosticGroup> findByGroupName(String name);
 }

@@ -8,7 +8,7 @@ import java.util.Set;
 @Entity
 @Table(name = "kvvv_float")
 public class Kvvvfloat {
-    private int idKv;
+    private Integer idKv;
     private Double d2;
     private Double d3;
     private Double d4;
@@ -46,12 +46,13 @@ public class Kvvvfloat {
     private Set<Seans> seanses;
 
     @Id
-    @Column(name = "IdKV", nullable = false)
-    public int getIdKv() {
+    @Column(name = "IdKV", nullable = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Integer getIdKv() {
         return idKv;
     }
 
-    public void setIdKv(int idKv) {
+    public void setIdKv(Integer idKv) {
         this.idKv = idKv;
     }
 
