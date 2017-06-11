@@ -12,10 +12,12 @@
     <script src="js/app/app.js"></script>
     <script src="js/app/services/HospitalStaffService.js"></script>
     <script src="js/app/controllers/HospitalStaffController.js"></script>
+    <script src="js/app/services/PatientsService.js"></script>
+    <script src="js/app/controllers/PatientsController.js"></script>
     <link href="css/bootstrap.css" rel="stylesheet"/>
     <link href="css/app.css" rel="stylesheet"/>
 </head>
-<body>
+<body ng-app="crudApp">
 <div class="header-panel" style="height: 10%; width: 100%; text-align: center">
     <div class="generic-container">
         <nav class="navbar navbar-default">
@@ -28,17 +30,16 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Диаспектрикс</a>
+                    <a class="navbar-brand" ui-sref="home">Диаспектрикс</a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">Link</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true" aria-expanded="false">Страницы<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Доктора</a></li>
-                                <li><a href="#">Пациенты</a></li>
+                                <li><a ui-sref="home">Доктора</a></li>
+                                <li><a ui-sref="patients">Пациенты</a></li>
                                 <li><a href="#">Something else here</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#">Separated link</a></li>
@@ -47,25 +48,11 @@
                             </ul>
                         </li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Link</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </nav>
     </div>
 </div>
-<div ui-view class="parentbox"></div>
+<div ui-view id="parentbox" class="parentbox"></div>
 </body>
 </html>

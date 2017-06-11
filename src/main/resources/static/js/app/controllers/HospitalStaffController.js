@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('crudApp').controller('HospitalStaffController',
-    ['HospitalStaffService', '$scope',  function(HospitalStaffService, $scope) {
+    ['HospitalStaffService', '$scope', '$state',  function(HospitalStaffService, $scope, $state) {
 
         var self = this;
         self.hospitalStaff = {};
