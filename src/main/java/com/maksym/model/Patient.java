@@ -29,6 +29,7 @@ public class Patient {
 
     @Id
     @Column(name = "IdP", nullable = false)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     public int getIdP() {
         return idP;
     }

@@ -31,7 +31,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="gender">Пол</label>
                             <div class="col-md-7">
-                                <input type="date" ng-model="ctrl.patient.gender" id="gender"
+                                <input type="text" ng-model="ctrl.patient.gender" id="gender"
                                        class="username form-control input-sm"/>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-label" for="disease">Диагноз</label>
                             <div class="col-md-7">
-                                <input type="date" ng-model="ctrl.patient.gender" id="disease"
+                                <input type="text" ng-model="ctrl.patient.disease" id="disease"
                                        class="username form-control input-sm"/>
                             </div>
                         </div>
@@ -91,6 +91,8 @@
                         <th>Дата рождения</th>
                         <th>Дата посещения</th>
                         <th>Диагноз</th>
+                        <th>Телефон</th>
+                        <th>Данные паспорта</th>
                         <th width="100"></th>
                         <th width="100"></th>
                     </tr>
@@ -104,6 +106,8 @@
                         <td>{{pat.bDay}}</td>
                         <td>{{pat.accDate}}</td>
                         <td>{{pat.disease}}</td>
+                        <td>{{pat.tel}}</td>
+                        <td>{{pat.passport}}</td>
                         <td>
                             <button type="button" ng-click="ctrl.editPatient(pat.idP)"
                                     class="btn btn-success custom-width" style="text-align:center;">Изменить

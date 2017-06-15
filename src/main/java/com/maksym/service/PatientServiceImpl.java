@@ -45,6 +45,6 @@ public class PatientServiceImpl implements PatientService {
     }
 
     public boolean isPatientExist(Patient patient) {
-        return patientRepository.exists(patient.getIdP());
+        return patientRepository.findByName(patient.getFio()) != null;
     }
 }

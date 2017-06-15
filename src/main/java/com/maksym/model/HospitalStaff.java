@@ -9,7 +9,7 @@ import java.util.Set;
 @Entity
 @Table(name = "hospital_staff")
 public class HospitalStaff {
-    private int idHs;
+    private Integer idHs;
     private String login;
     private String pass;
     private String hsfio;
@@ -27,11 +27,12 @@ public class HospitalStaff {
 
     @Id
     @Column(name = "IdHS", nullable = false)
-    public int getIdHs() {
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    public Integer getIdHs() {
         return idHs;
     }
 
-    public void setIdHs(int idHs) {
+    public void setIdHs(Integer idHs) {
         this.idHs = idHs;
     }
 

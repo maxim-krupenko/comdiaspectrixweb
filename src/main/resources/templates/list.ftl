@@ -52,6 +52,28 @@
                     </div>
 
                     <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 control-label" for="hsemail">Email</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="ctrl.hospitalStaff.email" id="hsemail"
+                                       class="username form-control input-sm"
+                                       ng-minlength="3"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="col-md-2 control-label" for="hstel">Телефон</label>
+                            <div class="col-md-7">
+                                <input type="text" ng-model="ctrl.hospitalStaff.tel" id="hstel"
+                                       class="username form-control input-sm"
+                                       ng-minlength="3"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
                         <div class="form-actions floatRight">
                             <input type="submit" value="{{!ctrl.hospitalStaff.idHs ? 'Добавить' : 'Сохранить'}}"
                                    class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid || myForm.$pristine">
@@ -77,6 +99,9 @@
                         <th>Пароль</th>
                         <th>ФИО</th>
                         <th>Дата рождения</th>
+                        <th>Телефон</th>
+                        <th>Email</th>
+
                         <th width="100"></th>
                         <th width="100"></th>
                     </tr>
@@ -88,6 +113,8 @@
                         <td>{{hs.pass}}</td>
                         <td>{{hs.hsfio}}</td>
                         <td>{{hs.bDay}}</td>
+                        <td>{{hs.tel}}</td>
+                        <td>{{hs.email}}</td>
                         <td>
                             <button type="button" ng-click="ctrl.editHospitalStaff(hs.idHs)"
                                     class="btn btn-success custom-width" style="text-align:center;">Изменить

@@ -40,6 +40,6 @@ public class HospitalStaffServiceImpl implements HospitalStaffService{
     }
     
     public boolean isHospitalStaffExist(HospitalStaff hospitalStaff) {
-        return hospitalStaffRepository.exists(hospitalStaff.getIdHs());
+        return hospitalStaffRepository.findByLogin(hospitalStaff.getLogin()) != null;
     }
 }
