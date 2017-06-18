@@ -5,7 +5,11 @@ app.constant('urls', {
     BASE: 'http://localhost:8080/diaspectrixweb',
     USER_SERVICE_API : 'http://localhost:8080/diaspectrxiweb/api/hospital-staff/',
     HOSPITAL_STAFF_SERVICE_API : 'http://localhost:8080/diaspectrixweb/api/hospital-staff/',
-    PATIENT_SERVICE_API: 'http://localhost:8080/diaspectrixweb/api/patient/'
+    PATIENT_SERVICE_API: 'http://localhost:8080/diaspectrixweb/api/patient/',
+    DIAGNOSTIC_GROUP_SERVICE_API : 'http://localhost:8080/DiaspectrixWeb/api/diagnostic-group/',
+    KVVV_SERVICE_API : 'http://localhost:8080/DiaspectrixWeb/api/kvvv/',
+    CLASSIFICATION_SERVICE_API : 'http://localhost:8080/DiaspectrixWeb/api/classification/'
+    
 });
 
 app.config(['$stateProvider', '$urlRouterProvider',
@@ -44,6 +48,32 @@ app.config(['$stateProvider', '$urlRouterProvider',
                         return deferred.promise;
                     }
                 }
+            })
+            .state('diagnosticGroup', {
+                url: '/diagnosticGroup',
+                templateUrl: 'partials/diagnostic_group',
+                controller:'DiagnosticGroupController',
+                controllerAs:'ctrl',
+                resolve: {
+                    diagnosticGroups: function ($q, DiagnosticGroupService) {
+                        console.log('Load all diagnosticGroups');
+                        var deferred = $q.defer();
+                        DiagnosticGroupService.loadAllDiagnosticGroups().then(deferred.resolve, deferred.resolve);
+                        return deferred.promise;
+                    }
+                }
+            }).state('classification', {
+                url: '/classification',
+                templateUrl: 'partials/classify_case',
+                controller:'ClassificationController',
+                controllerAs:'ctrl',
+                resolve: {}
+            }).state('addNewGroup', {
+                url: '/addNewGroup',
+                templateUrl: 'partials/add_new_group',
+                controller:'AddNewGroupController',
+                controllerAs:'ctrl',
+                resolve: {}
             });
         $urlRouterProvider.otherwise('/');
     }]);

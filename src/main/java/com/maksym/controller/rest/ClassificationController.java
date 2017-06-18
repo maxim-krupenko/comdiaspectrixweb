@@ -25,9 +25,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.maksym.model.DiagnosticGroup;
 import com.maksym.model.Kvvvfloat;
 
 import discriminantanalysis.DiscriminantAnalysisController;
+import discriminantanalysis.DiscriminantAnalysisFileHandler;
 
 @RestController
 @RequestMapping("/api")
@@ -60,10 +62,10 @@ public class ClassificationController {
 	}
 
 	@RequestMapping(value = "/classification/", method = RequestMethod.POST)
-	public ResponseEntity<Integer> classify(@RequestBody Kvvvfloat kvvv, UriComponentsBuilder ucBuilder) {
+	public ResponseEntity classify(@RequestBody Kvvvfloat kvvv, UriComponentsBuilder ucBuilder) {
 		double vector[] = getKvvpArray(kvvv);
-		Integer groupId = discriminantAnalysisController.classify(vector);
-		return new ResponseEntity<Integer>(groupId, HttpStatus.OK);
+		DiagnosticGroup group = discriminantAnalysisController.classify(vector);
+		return new ResponseEntity<>(group, HttpStatus.OK);
 	}
 
 	private String saveFileOnDisk(MultipartFile multipartFile) {

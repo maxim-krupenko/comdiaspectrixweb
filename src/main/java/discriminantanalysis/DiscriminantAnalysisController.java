@@ -6,18 +6,23 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.maksym.model.DiagnosticGroup;
 import com.maksym.model.Kvvvfloat;
+import com.maksym.service.DiagnosticGroupService;
 import com.maksym.service.KvvpService;
 
 public class DiscriminantAnalysisController {
 	@Autowired
 	KvvpService kvvpService;
 	
+	@Autowired
+	DiagnosticGroupService diagnosticGroupService;
+	
 	private double X[][][];
 	
 	private int groups[];
 	
-	public synchronized int classify(double vector[]) {
+	public synchronized DiagnosticGroup classify(double vector[]) {
 		DiscriminantAnalysisFileHandler dafh = new DiscriminantAnalysisFileHandler();
 		try {
 			dafh.readFunctionData("vars.txt", "groups.txt", "b.txt", "a.txt");
@@ -25,11 +30,13 @@ public class DiscriminantAnalysisController {
 					dafh.getB(), dafh.getA(), dafh.getVariables());
 			int groupIdx = discriminantAnalysis.classify(vector);
 			int groups[] = dafh.getGroups();
-			return groups[groupIdx];
+			int groupId = groups[groupIdx];
+			DiagnosticGroup group = diagnosticGroupService.findById(groupId);
+			return group;
 		} catch (FileNotFoundException e) {
 			System.out.println(e.getMessage());
 		}
-		return -1;
+		return null;
 	}
 
 	public synchronized void doAnalysis() {

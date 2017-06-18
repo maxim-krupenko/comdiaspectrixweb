@@ -14,6 +14,16 @@
     <script src="js/app/controllers/HospitalStaffController.js"></script>
     <script src="js/app/services/PatientsService.js"></script>
     <script src="js/app/controllers/PatientsController.js"></script>
+    
+    <script src="js/app/services/DiagnosticGroupService.js"></script>
+    <script src="js/app/controllers/DiagnosticGroupController.js"></script>
+    
+    
+    <script src="js/app/controllers/ClassificationController.js"></script>
+    <script src="js/app/services/ClassificationService.js"></script>
+    
+    <script src="js/app/controllers/AddNewGroupController.js"></script>
+    
     <link href="css/bootstrap.css" rel="stylesheet"/>
     <link href="css/app.css" rel="stylesheet"/>
 </head>
@@ -40,11 +50,10 @@
                             <ul class="dropdown-menu">
                                 <li><a ui-sref="home">Доктора</a></li>
                                 <li><a ui-sref="patients">Пациенты</a></li>
-                                <li><a href="#">Something else here</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
+                                <li><a href="#/diagnosticGroup">Диагностические группы</a></li>
+                                <li><a href="#/classification">Классификация</a></li>
+                                <li><a href="#/addNewGroup">Добавление диагностической группы</a></li>
                             </ul>
                         </li>
                     </ul>

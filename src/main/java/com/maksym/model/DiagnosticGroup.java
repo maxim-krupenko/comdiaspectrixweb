@@ -8,7 +8,7 @@ import java.util.Set;
 @Entity
 @Table(name = "diagnostic_group")
 public class DiagnosticGroup {
-    private int idDg;
+    private Integer idDg;
     private String groupName;
     private String description;
     private Kvvvfloat idKv;
@@ -17,8 +17,9 @@ public class DiagnosticGroup {
     private Set<Seans> seanses;
 
     @Id
-    @Column(name = "IdDG", nullable = false)
-    public int getIdDg() {
+    @Column(name = "IdDG", nullable = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Integer getIdDg() {
         return idDg;
     }
 

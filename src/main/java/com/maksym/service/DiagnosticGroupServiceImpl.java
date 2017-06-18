@@ -49,6 +49,9 @@ public class DiagnosticGroupServiceImpl implements DiagnosticGroupService{
     	if(groupsWithSameName != null && !groupsWithSameName.isEmpty()) {
     		return true;
     	}
+    	if(diagnosticGroup.getIdDg() == null) {
+    		return false;
+    	}
         return diagnosticGroupRepository.exists(diagnosticGroup.getIdDg());
     }
 }

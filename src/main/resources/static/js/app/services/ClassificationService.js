@@ -18,7 +18,8 @@ angular.module('crudApp').factory('ClassificationService',
                     .then(
                         function (response) {
                             deferred.resolve(response.data);
-                            console.log(response.data);
+                            console.log(response.data.groupName);
+                        	alert("Group " + response.data.groupName);
                         },
                         function (errResponse) {
                             console.error('Error while creating DiagnosticGroup : '+errResponse.data.errorMessage);
